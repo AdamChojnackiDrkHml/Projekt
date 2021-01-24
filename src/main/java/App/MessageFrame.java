@@ -1,6 +1,5 @@
 package App;
 
-
 import javax.swing.*;
 
 public class MessageFrame extends JFrame

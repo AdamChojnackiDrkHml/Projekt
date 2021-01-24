@@ -25,6 +25,6 @@ public class App extends JFrame
         ResultSet resultSet = stm.executeQuery(statement);
         resultSet.next();
         System.out.println(resultSet.getString("CourseName")); */
-        EventQueue.invokeLater(() -> new SemesterFrame());
+        EventQueue.invokeLater(() -> new LoginFrame());
     }
 }

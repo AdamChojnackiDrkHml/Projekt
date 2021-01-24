@@ -1,7 +1,5 @@
 package App;
 
-
-
 import javax.swing.*;
 
 public class TimeFrame extends JFrame
@@ -17,5 +15,4 @@ public class TimeFrame extends JFrame
         setSize(300, 200);
         setVisible(true);
     }
-
 }

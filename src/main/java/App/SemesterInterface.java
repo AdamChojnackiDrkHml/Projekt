@@ -1,6 +1,5 @@
 package App;
 
-
 import java.util.ArrayList;
 
 public interface SemesterInterface
