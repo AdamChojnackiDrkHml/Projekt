@@ -11,7 +11,7 @@ public class App extends JFrame
 
 	public static void main(String[] args) throws SQLException
     {
-        DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
+        /*DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
         String dbURL = "jdbc:sqlserver://localhost\\sqlexpress;user=Admin;password=dPl1s.mn]Q";
         Connection conn = DriverManager.getConnection(dbURL);
         if (conn != null) 
@@ -24,7 +24,7 @@ public class App extends JFrame
 
         ResultSet resultSet = stm.executeQuery(statement);
         resultSet.next();
-        System.out.println(resultSet.getString("CourseName"));
+        System.out.println(resultSet.getString("CourseName")); */
         EventQueue.invokeLater(() -> new SemesterFrame());
     }
 }
