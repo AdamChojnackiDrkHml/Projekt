@@ -22,7 +22,7 @@ public class LoginPanel extends JPanel implements ActionListener
 		setPreferredSize(new Dimension(width, height));
 		login = new JLabel("Login");
 		password = new JLabel("Haslo");
-		loginField = new JTextFeld();
+		loginField = new JTextField();
 		passField = new JPasswordField();
 		loginButton = new JButton("Zaloguj");
 		loginButton.addActionListener(this);

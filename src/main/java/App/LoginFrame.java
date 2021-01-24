@@ -1,5 +1,7 @@
 package App;
 
+import javax.swing.*;
+
 public class LoginFrame extends JFrame
 {
 	private static final long serialVersionUID = 1L;
