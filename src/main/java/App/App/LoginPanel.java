@@ -18,7 +18,7 @@ public class LoginPanel extends JPanel implements ActionListener
     
 	public LoginPanel()
 	{
-		setLayout(new GridLayout(2, 2));
+		setLayout(new GridLayout(3, 2));
 		setPreferredSize(new Dimension(width, height));
 		login = new JLabel("Login");
 		password = new JLabel("Haslo");
