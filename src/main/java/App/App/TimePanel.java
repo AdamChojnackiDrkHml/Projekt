@@ -18,8 +18,8 @@ public class TimePanel extends JPanel implements ActionListener
     private JButton stop;
     private JButton confirm;
 
-	private boolean canStop;
-	private boolean canStart;
+	private boolean canStop = false;
+	private boolean canStart = true;
 
 	public TimePanel()
     {
@@ -42,8 +42,6 @@ public class TimePanel extends JPanel implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		canStop = false;
-		canStart = true;
 		Object source = e.getSource();
 		if (source == info)
 		{
