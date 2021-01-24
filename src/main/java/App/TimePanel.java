@@ -52,13 +52,13 @@ public class TimePanel extends JPanel implements ActionListener
 					"\nAby powrocic do mierzenia czasu, ponownie kliknij start" +
 					"\nAby zapisac zmierzony czas, kliknij zatwierdz");
 		}
-		else if (source == start && canStart) //mozna zaczac tylko raz, dopoki sie nie zatrzyma
+		else if (source == start && canStart)
 		{
 			myTimer.startTheCount();
 			canStop = true;
 			canStart = false;
 		}
-		else if (source == stop && canStop) //mozna zatrzymac dopiero po kliknieciu start
+		else if (source == stop && canStop)
 		{
 			myTimer.stopTheCount();
 			new MessageFrame("Twoj czas: " + myTimer.yourTime + "ms");
