@@ -2,7 +2,7 @@ package App;
 
 import java.util.ArrayList;
 
-public interface SemesterInterface
+public class Semester
 {
     ArrayList<Course> courses = new ArrayList<>();
 }

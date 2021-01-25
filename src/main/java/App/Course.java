@@ -7,6 +7,6 @@ public class Course
     String name = null;
     CourseType type = CourseType.NULL;
     String lecturer = null;
-    int year = 0;
+    int courseId;
     ArrayList<List> lists = new ArrayList<>();
 }
