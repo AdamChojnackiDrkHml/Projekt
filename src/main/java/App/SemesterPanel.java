@@ -35,7 +35,7 @@ public class SemesterPanel extends JPanel implements ActionListener
             {
                 try
                 {
-                    new CourseFrame(i);
+                    new CourseFrame(i + 1);
                 } catch (SQLException throwables)
                 {
                     throwables.printStackTrace();

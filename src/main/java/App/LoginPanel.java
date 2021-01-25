@@ -14,11 +14,14 @@ public class LoginPanel extends JPanel implements ActionListener
     private JTextField loginField;
 	private JPasswordField passField;
 	private JButton loginButton;
+	private JButton registerButton;
 	private JLabel login;
 	private JLabel password;
     static DBConnection dbConnection;
-	public LoginPanel()
+	public LoginPanel() throws SQLException
 	{
+		DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
+		dbConnection = new DBConnection(new String[] {"Admin", "dPl1s.mn]Q"});
 		setLayout(new GridLayout(3, 2));
 		setPreferredSize(new Dimension(width, height));
 		login = new JLabel("Login");
@@ -27,11 +30,14 @@ public class LoginPanel extends JPanel implements ActionListener
 		passField = new JPasswordField();
 		loginButton = new JButton("Zaloguj");
 		loginButton.addActionListener(this);
+		registerButton = new JButton("Zarejestruj");
+		registerButton.addActionListener(this);
 		add(login);
 		add(loginField);
 		add(password);
 		add(passField);
 		add(loginButton);
+		add(registerButton);
 	}
 	
 	@Override
@@ -42,14 +48,12 @@ public class LoginPanel extends JPanel implements ActionListener
         {
 			try
 			{
-				DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
-				String dbURL = "jdbc:sqlserver://localhost\\sqlexpress;user=Admin;password=dPl1s.mn]Q";
-				Connection conn = DriverManager.getConnection(dbURL);
+
 				String login = loginField.getText();
 				String password = passField.getText();
 				String statement = "SELECT  dbo.authorize( '" + login + "' , '" + password + "') as password";
-				assert conn != null;
-				Statement stm = conn.createStatement();
+				assert DBConnection.conn != null;
+				Statement stm = DBConnection.conn.createStatement();
 
 				ResultSet resultSet = stm.executeQuery(statement);
 				resultSet.next();
@@ -60,13 +64,20 @@ public class LoginPanel extends JPanel implements ActionListener
 				}
 				else
 				{
-					conn.close();
+					DBConnection.conn.close();
 					dbConnection = new DBConnection(answer.split(","));
 					stm = DBConnection.conn.createStatement();
 					resultSet = stm.executeQuery("SELECT dbo.getUser('" + login +"') as id");
 					resultSet.next();
 					DBConnection.UserId = Integer.parseInt(resultSet.getString("id"));
-					new SemesterFrame();
+					if(DBConnection.UserType.equals("DefaultUser"))
+					{
+						new SemesterFrame();
+					}
+					else
+					{
+						new AdministartiveFrame();
+					}
 				}
 			} catch (SQLException throwables)
 			{
@@ -75,5 +86,9 @@ public class LoginPanel extends JPanel implements ActionListener
 
 
         }
+        if(source.equals(registerButton))
+		{
+			new RegisterFrame();
+		}
     }
 }

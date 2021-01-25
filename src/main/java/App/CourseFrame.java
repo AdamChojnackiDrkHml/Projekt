@@ -9,7 +9,7 @@ public class CourseFrame extends JFrame
 
     public CourseFrame(int i) throws SQLException
     {
-        super("Kursy");
+        super(String.valueOf(i));
         JPanel coursePanel = new CoursePanel(i);
         add(coursePanel);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

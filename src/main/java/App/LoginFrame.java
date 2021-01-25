@@ -1,12 +1,13 @@
 package App;
 
 import javax.swing.*;
+import java.sql.SQLException;
 
 public class LoginFrame extends JFrame
 {
 	private static final long serialVersionUID = 1L;
 
-    public LoginFrame()
+    public LoginFrame() throws SQLException
     {
         super("Logowanie");
         JPanel loginPanel = new LoginPanel();

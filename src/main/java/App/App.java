@@ -12,6 +12,15 @@ public class App extends JFrame
 	public static void main(String[] args) throws SQLException
     {
 
-        EventQueue.invokeLater(() -> new LoginFrame());
+        EventQueue.invokeLater(() ->
+        {
+            try
+            {
+                new LoginFrame();
+            } catch (SQLException throwables)
+            {
+                throwables.printStackTrace();
+            }
+        });
     }
 }
